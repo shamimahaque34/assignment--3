@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hockeys</title>
+    <!-- Favicon Link Starts Here -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Favicon Link Ends Here -->
+
+    <!-- Google Font CDN Link Starts Here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap">
+    <!-- Google Font CDN Link Ends Here -->
+
+    <!-- Fontawesome CDN Link Starts Here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Fontawesome CDN Link Ends Here -->
+
+    <!-- DaisyUi CDN Link Starts Here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css">
+    <!-- DaisyUi CDN Link Ends Here -->
+
+    <!-- Tailwind CSS CDN Link Starts Here -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS CDN Link Ends Here -->
+    <link rel="stylesheet" href="assets/styles/custom.css">
+
+    <!-- Tailwind CSS Config Starts Here -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        manrope: ["Manrope", "sans-serif"],
+                    },
+                    colors: {
+                       'tertiary-color' : '#FF4240',
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Tailwind CSS Config Ends Here -->
+
+    <!-- Tailwind CSS Layer Starts Here -->
+    <style type="text/tailwindcss">
+         @layer base{
+            html {
+                font-family: 'Manrope', sans-serif;
+            }
+        }
+        @layer components{
+            .navbar-link{
+                @apply text-[#424247] xl:text-base font-normal duration-500 ease-in-out hover:text-tertiary-color;
+            }
+            .active{
+                @apply text-tertiary-color;
+            }
+            .primary-button{
+                @apply py-3 xl:py-4 px-4 xl:px-6 bg-tertiary-color border border-tertiary-color rounded-lg text-white text-base xl:text-xl font-bold duration-500 ease-in-out hover:bg-white hover:text-tertiary-color inline-block;
+            }
+            .section-gap{
+                @apply pt-10 xl:pt-[100px];
+            }
+            .section-header{
+                @apply py-4 xl:py-8 mb-6 xl:mb-12 border border-dashed border-[#13131833] border-x-0 text-center;
+            }
+            .section-header-title{
+                @apply text-[#131318] font-extrabold text-xl md:text-2xl xl:text-4xl mb-3 xl:mb-6;
+            }
+            .section-header-description{
+                @apply max-w-full md:max-w-[607px] mx-auto text-[#13131899] text-sm md:text-base font-medium;
+            }
+            .progress-card{
+                @apply flex flex-col items-center text-center;
+            }
+            .progress-card-title{
+                @apply text-[#131318] text-lg xl:text-xl font-semibold;
+            }
+            .progress-card-number{
+                @apply xl:text-3xl font-extrabold;
+            }
+            .progress-card-description{
+                @apply text-[#13131899] font-normal text-sm sm:text-base mx-auto xl:max-w-[250px];
+            }
+            .program-card{
+                @apply p-4 xl:px-10 xl:pb-10 xl:pt-[96px] rounded-2xl bg-no-repeat bg-cover bg-center duration-500 ease-in-out hover:scale-[1.01];
+            }
+            .program-card-lg{
+                @apply xl:pt-[207px];
+            }
+            .program-card-title{
+                @apply text-white text-lg xl:text-2xl font-extrabold;
+            }
+            .program-card-description{
+                @apply mt-3 mb-4 xl:mt-4 xl:mb-6 text-white text-sm xl:text-base font-medium lg:max-w-[500px];
+            }
+            .product-card{
+                @apply p-4 xl:p-6 border border-[#13131880] rounded-2xl flex gap-3 xl:gap-5 items-center flex-col sm:flex-row md:flex-col lg:flex-row justify-center sm:justify-start;
+            }
+            .product-card-info{
+                @apply flex gap-1 xl:gap-2;
+            }
+            .product-card-info-top{
+                @apply flex gap-3 xl:gap-4 justify-center sm:justify-start md:justify-center lg:justify-start;
+            }
+            .product-card-info-bottom{
+                @apply flex gap-2 xl:gap-5 justify-center sm:justify-start flex-wrap sm:flex-nowrap md:justify-center lg:justify-start items-center;
+            }
+            .product-card-info-bottom-right{
+                @apply flex items-center gap-2;
+            }
+            .product-card-info-bottom-right p{
+                @apply lg:text-sm xl:text-lg;
+            }
+            .product-card-info-text{
+                @apply text-base font-medium;
+            }
+            .product-card-title{
+                @apply my-3 sm:inline-block text-[#131318] font-extrabold xl:text-xl duration-500 ease-in-out hover:text-tertiary-color flex justify-center sm:justify-start md:flex md:justify-center lg:inline-block lg:justify-start;
+            }
+            .product-card-description{
+                @apply text-base font-medium text-[#13131880] mb-3 xl:mb-4 md:max-w-[306px] text-center sm:text-left md:text-center lg:text-left;
+            }
+            .product-card-price{
+                @apply text-[#FF4240] text-base sm:text-base md:text-base lg:text-sm xl:text-lg font-extrabold;
+            }
+            .faq-title{
+                @apply text-[#131318] text-base xl:text-xl font-bold flex items-center;
+            }
+            .faq-text{
+                @apply text-[#13131899] text-sm xl:text-base font-normal lg:max-w-[518px];
+            }
+            .contact-area-right{
+                @apply p-6 xl:p-12 border border-solid lg:border-dashed border-[#1313181a] rounded-2xl gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-1;
+            }
+            .contact-card{
+                @apply p-4 xl:p-8 rounded-2xl bg-[#bced6d1a];
+            }
+            .contact-card:nth-child(2){
+                @apply  bg-[#fddd5f1a];
+            }
+            .contact-card:nth-child(3){
+                @apply  bg-[#629cf31a];
+            }
+            .contact-card p{
+                @apply my-3 xl:mt-6 xl:mb-4 text-[#13131866] xl:text-base font-normal;
+            }
+            .contact-card a,
+            .contact-card h4{
+                @apply text-[#131318] xl:text-lg font-extrabold;
+            }
+            .contact-area-form label{
+                @apply text-[#131318] xl:text-xl font-bold block mb-4; 
+            }
+            .contact-area-form input{
+                @apply text-[#1313184d] xl:text-base font-normal block w-full bg-[#13131808] rounded-xl p-3 xl:p-5 outline-none; 
+            }
+            .contact-area-form textarea{
+                @apply text-[#1313184d] xl:text-base font-normal block w-full bg-[#13131808] rounded-xl p-3 xl:p-5 outline-none min-h-[200px] xl:min-h-[370px] resize-none; 
+            }
+            .s-media{
+                @apply bg-[#13131808] py-4 xl:py-8 rounded-xl mt-6 xl:mt-12 flex flex-col items-center;
+            }
+            .s-media h4{
+                @apply text-[#131318] text-lg xl:text-2xl font-extrabold mb-3 xl:mb-6; 
+            }
+            .s-media a{
+                @apply text-[#131318] text-xl xl:text-2xl inline-block me-6 duration-500 ease-in-out hover:text-tertiary-color;
+            }
+            .s-media a:last-child{
+                @apply me-0;
+            }
+            .footer h3{
+                @apply text-white text-2xl xl:text-3xl font-extrabold mb-4 text-center lg:text-left;
+            }
+            .footer-text{
+                @apply mb-3 xl:mb-6 mx-auto lg:mx-0 max-w-[80%] sm:max-w-[100%] lg:max-w-[80%] xl:max-w-[350px] text-[#ffffff99] text-sm xl:text-base font-medium text-center lg:text-left;
+            }
+            .footer-icon{
+                @apply text-base xl:text-2xl text-[#FF4240];
+            }
+            .footer-text-normal{
+                @apply text-[#ffffff99] text-base xl:text-base font-medium;
+            }
+            .footer-heading{
+                @apply text-white xl:text-lg font-bold mb-4;
+            }
+            .footer-list{
+                @apply space-y-3;
+            }
+            .footer-list a{
+                @apply text-[#ffffff99] inline-block xl:text-base font-medium duration-500 ease-in-out hover:text-tertiary-color;
+            }
+        }
+    </style>
+    <!-- Tailwind CSS Layer Ends Here -->
+</head>
+<body>
+    <!-- Header Starts Here -->
+    <header class="px-3 xl:px-5 pt-5 xl:pt-10">
+        <div class="container mx-auto">
+            <!-- Nav Starts Here -->
+            <nav class="flex justify-between items-center pb-6 xl:pb-12">
+                <!-- Navbar Left Starts Here -->
+                <div>
+                    <div class="flex items-center">
+                        <div class="me-4 block lg:hidden">
+                            <div class="drawer drawer-end">
+                                <input id="hamburger" type="checkbox" class="drawer-toggle">
+                                <div class="drawer-content">
+                                  <!-- Page content here -->
+                                  <label for="hamburger" class="cursor-pointer">
+                                    <img src="assets/images/icons/header/hamburger.png" alt="Icon" class="h-[20px] w-[20px]">
+                                  </label>
+                                </div> 
+                                <div class="drawer-side overflow-hidden z-10">
+                                  <label for="hamburger" aria-label="close sidebar" class="drawer-overlay"></label>
+                                  <ul class="menu p-4 w-[80%] min-h-full bg-base-200 text-base-content gap-y-4">
+                                    <li>
+                                        <a href="index.html" class="navbar-link active">Home</a>
+                                    </li>
+                                    <li><a href="#" class="navbar-link">About</a></li>
+                                    <li><a href="#" class="navbar-link">Pages</a></li>
+                                    <li><a href="#" class="navbar-link">Blog</a></li>
+                                    <li><a href="#" class="navbar-link">Contact</a></li>
+                                  </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="index.html" class="inline-block lg:hidden pt-2">
+                                <img src="assets/images/logo.png" alt="Logo" class="max-w-full h-auto">
+                            </a>
+                            <a href="index.html" class="hidden lg:inline-block pt-2">
+                                <img src="assets/images/logo-lg.png" alt="Logo" class="max-w-full h-auto">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navbar Left Ends Here -->
+
+                <!-- Navbar Links Starts Here -->
+                <div class="hidden lg:block">
+                    <ul class="flex items-center gap-11">
+                        <li><a href="index.html" class="navbar-link active">Home</a></li>
+                        <li><a href="#" class="navbar-link">About</a></li>
+                        <li><a href="#" class="navbar-link">Pages</a></li>
+                        <li><a href="#" class="navbar-link">Blog</a></li>
+                        <li><a href="#" class="navbar-link">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Navbar Links Ends Here -->
+
+                <!-- Navbar Right Starts Here -->
+                <div>
+                    <div class="flex items-center">
+                        <div class="me-6 text-2xl text-[#89898B] cursor-pointer hidden lg:block">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" class="primary-button">
+                                Get Ticket
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navbar Right Ends Here -->
+            </nav>
+            <!-- Nav Ends Here -->
+
+            <!-- Slider Starts Here -->
+            <div class="carousel w-full">
+                <!-- First Slider Starts Here -->
+                <div id="slide1" class="carousel-item relative w-full bg-[url('assets/images/slider/01.png')] bg-no-repeat bg-center bg-cover min-h-[200px] lg:min-h-[350px] xl:min-h-[550px] rounded-2xl">
+                    <!-- Slider Content Starts Here -->
+                    <div class="hidden lg:block absolute lg:p-6 xl:p-8 rounded-2xl bg-[#131318] max-w-[566px] max-h-[165px] lg:left-[50%] lg:-translate-x-[50%] lg:bottom-[120px] xl:-translate-x-0 xl:right-8 xl:bottom-8">
+                        <h3 class="mb-4 text-white xl:text-2xl font-extrabold">
+                            Power Plays and Puck Precision Unleashed
+                        </h3>
+                        <p class="text-[#ffffff99]">
+                            Experience hockey's dynamic allure as players showcase unmatched prowess in precision, executing power plays with finesse.
+                        </p>
+                    </div>
+                    <!-- Slider Content Ends Here -->
+                    <div class="absolute flex justify-between bottom-5 left-[50%] -translate-x-[50%] xl:-translate-x-[0%] xl:bottom-8 xl:left-8 gap-x-6">
+                    <a href="#slide2" class="btn btn-circle bg-[#131318] border border-[#131318] hover:bg-[#131318] hover:border-[#131318]">
+                        <span class="text-white">❮</span>
+                    </a> 
+                    <a href="#slide2" class="btn btn-circle bg-[#131318] border border-[#131318] hover:bg-[#131318] hover:border-[#131318]">
+                        <span class="text-white">❯</span>
+                    </a>
+                    </div>
+                </div> 
+                <!-- First Slider Ends Here -->
+
+                <!-- Second Slider Starts Here -->
+                <div id="slide2" class="carousel-item relative w-full bg-[url('assets/images/slider/02.jpg')] bg-no-repeat bg-center bg-cover min-h-[200px] lg:min-h-[350px] xl:min-h-[550px] rounded-2xl">
+                    <!-- Slider Content Starts Here -->
+                    <div class="hidden lg:block absolute lg:p-6 xl:p-8 rounded-2xl bg-[#131318] max-w-[566px] max-h-[165px] lg:left-[50%] lg:-translate-x-[50%] lg:bottom-[120px] xl:-translate-x-0 xl:right-8 xl:bottom-8">
+                        <h3 class="mb-4 text-white xl:text-2xl font-extrabold">
+                            Ice Dominance: Where Champions Rise 
+                        </h3>
+                        <p class="text-[#ffffff99]">
+                            Ice Dominance: A realm where aspiring champions forge greatness, showcasing skill, resilience, and unyielding determination on ice. 
+                        </p>
+                    </div>
+                    <!-- Slider Content Ends Here -->
+                    <div class="absolute flex justify-between bottom-5 left-[50%] -translate-x-[50%] xl:-translate-x-[0%] xl:bottom-8 xl:left-8 gap-x-6">
+                    <a href="#slide1" class="btn btn-circle bg-[#131318] border border-[#131318] hover:bg-[#131318] hover:border-[#131318]">
+                        <span class="text-white">❮</span>
+                    </a> 
+                    <a href="#slide1" class="btn btn-circle bg-[#131318] border border-[#131318] hover:bg-[#131318] hover:border-[#131318]">
+                        <span class="text-white">❯</span>
+                    </a>
+                    </div>
+                </div> 
+                <!-- Second Slider Ends Here -->
+            </div>
+            <!-- Slider Ends Here -->
+        </div>
+    </header>
+    <!-- Header Ends Here --> 
+
+    <!-- Main Content Starts Here --> 
+    <main class="px-3 xl:px-5">
+        <!-- Banner Content Starts Here -->
+        <section>
+            <div class="container mx-auto">
+                <div class="mt-4 block lg:hidden p-4 sm:p-6 md:p-8 rounded-2xl bg-[#131318]">
+                    <h3 class="mb-2 text-white text-lg font-extrabold">
+                        Ice Dominance: Where Champions Rise
+                    </h3>
+                    <p class="text-[#ffffff99] text-sm font-medium">
+                        Ice Dominance: A realm where aspiring champions forge greatness, showcasing skill, resilience, and unyielding determination on ice.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Banner Content Ends Here -->
+
+        <!-- Progress Area Starts Here -->
+        <section class="section-gap">
+            <div class="container mx-auto">
+                <!-- Section Header Starts Here -->
+                <div class="section-header">
+                    <h2 class="section-header-title">Professional Hockeys Club</h2>
+                    <p class="section-header-description">
+                        Join our elite Professional Hockey Club, where skill meets passion, forging a legacy of excellence on ice.
+                    </p>
+                </div>
+                <!-- Section Header Ends Here -->  
+
+                <!-- Section Content Starts Here -->   
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 xl:px-8">
+                    <div class="progress-card">
+                        <div class="radial-progress rotate-[130deg] text-[#ff4240]" style="--value:87; --size:120px;" role="progressbar">
+                            <span class="-rotate-[130deg] progress-card-number text-[#131318]">
+                                87%
+                            </span>
+                        </div>
+                        <h5 class="progress-card-title mt-6 mb-4">Prayer Facility</h5>
+                        <p class="progress-card-description">
+                            Quiet refuge for serene spiritual connection.
+                        </p>
+                    </div>
+                    <div class="progress-card">
+                        <div class="radial-progress rotate-[130deg] text-[#49d293]" style="--value:95; --size:120px;" role="progressbar">
+                            <span class="-rotate-[130deg] progress-card-number text-[#131318]">
+                                95%
+                            </span>
+                        </div>
+                        <h5 class="progress-card-title mt-6 mb-4">Experienced Coach</h5>
+                        <p class="progress-card-description">
+                            Seasoned coach guides players with expertise.
+                        </p>
+                    </div>
+                    <div class="progress-card">
+                        <div class="radial-progress rotate-[130deg] text-[#ffb546]" style="--value:90; --size:120px;" role="progressbar">
+                            <span class="-rotate-[130deg] progress-card-number text-[#131318]">
+                                90%
+                            </span>
+                        </div>
+                        <h5 class="progress-card-title mt-6 mb-4">Senior Player</h5>
+                        <p class="progress-card-description">
+                            Exemplary veteran, leading with skill and experience.
+                        </p>
+                    </div>
+                    <div class="progress-card">
+                        <div class="radial-progress rotate-[130deg] text-[#4c8df1]" style="--value:80; --size:120px;" role="progressbar">
+                            <span class="-rotate-[130deg] progress-card-number text-[#131318]">
+                                80%
+                            </span>
+                        </div>
+                        <h5 class="progress-card-title mt-6 mb-4">Training Ground</h5>
+                        <p class="progress-card-description">
+                            Elite athletes thrive in precision-focused training.
+                        </p>
+                    </div>
+                </div>             
+                <!-- Section Content Ends Here -->                
+            </div>
+        </section>
+        <!-- Progress Area Ends Here -->
+
+        <!-- Program Area Starts Here -->
+        <section class="section-gap">
+            <div class="container mx-auto">
+                <!-- Section Header Starts Here -->
+                <div class="section-header">
+                    <h2 class="section-header-title">Program Sections</h2>
+                    <p class="section-header-description">
+                        Explore our program sections for elite training, strategic gameplay, and forging bonds within our hockey community.
+                    </p>
+                </div>
+                <!-- Section Header Ends Here -->
+
+                <!-- Section Content Starts Here -->    
+                <div class="grid grid-cols-12 gap-6">
+                    <div class="col-start-1 col-end-13 sm:col-start-1 sm:col-end-7">
+                        <div class="program-card bg-[linear-gradient(45deg,rgba(19,19,24,0.50),rgba(19,19,24,0.2)),url('assets/images/program/01.png')]">
+                            <h4 class="program-card-title">
+                                Junior Program
+                            </h4>
+                            <p class="program-card-description">
+                                Dive into our Junior Program, a dynamic platform where young talents carve their path to hockey greatness. Expert coaching, cutting-edge training, and a passion for the game fuel their journey to success.
+                            </p>
+                            <a href="javascript:void(0)" class="primary-button py-2">
+                                Register Now!
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-start-1 col-end-13 sm:col-start-7 sm:col-end-13">
+                        <div class="program-card bg-[linear-gradient(45deg,rgba(19,19,24,0.50),rgba(19,19,24,0.2)),url('assets/images/program/02.png')]">
+                            <h4 class="program-card-title">
+                                Teenager Program
+                            </h4>
+                            <p class="program-card-description">
+                                Our Teenager Program is designed to empower and inspire adolescents, fostering personal growth and skill development. Through a dynamic blend of activities, mentorship, and learning, we cultivate confident and resilient young individuals.
+                            </p>
+                            <a href="javascript:void(0)" class="primary-button py-2">
+                                Register Now!
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-start-1 col-end-13 xl:col-start-1 xl:col-end-13">
+                        <div class="program-card program-card-lg bg-[linear-gradient(45deg,rgba(19,19,24,0.50),rgba(19,19,24,0.2)),url('assets/images/program/03.png')]">
+                            <h4 class="program-card-title">
+                                Professional Program
+                            </h4>
+                            <p class="program-card-description">
+                                Our Professional Program is a dynamic initiative designed to cultivate elite talent in the world of hockey. Through specialized training, mentorship, and strategic development.
+                            </p>
+                            <a href="javascript:void(0)" class="primary-button py-2">
+                                Register Now!
+                            </a>
+                        </div>
+                    </div>
+                </div>              
+                <!-- Section Content Ends Here -->                  
+            </div>
+        </section>
+        <!-- Program Area Ends Here -->
+
+        <!-- Products Area Starts Here -->
+        <section class="section-gap">
+            <div class="container mx-auto">
+                <!-- Section Header Starts Here -->
+                <div class="section-header">
+                    <h2 class="section-header-title">Our New Products</h2>
+                    <p class="section-header-description">
+                        Discover our latest hockey gear, blending cutting-edge technology and sleek design for unparalleled performance on the ice.
+                    </p>
+                </div>
+                <!-- Section Header Ends Here -->
+
+                <!-- Section Content Starts Here -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="product-card">
+                        <div>
+                            <a href="javascript:void(0)" class="inline-block">
+                                <img src="assets/images/products/01.png" alt="Product Image" class="max-w-full h-auto">
+                            </a>
+                        </div>
+                        <div>
+                            <div class="product-card-info-top">
+                                <div class="product-card-info">
+                                    <span class="text-[#F99808]">
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <p class="product-card-info-text text-[#13131880]">
+                                        5.0
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-eye"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        20
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        200
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="product-card-title">
+                                    Winter Hoodie And Jacket
+                                </a>
+                            </div>
+                            <p class="product-card-description">
+                                Stay warm in style with our cozy winter hoodies and jackets.
+                            </p>
+                            <div class="product-card-info-bottom">
+                                <h5 class="product-card-price">
+                                    Price - $22.00
+                                </h5>
+                                <div class="text-[#13131880] product-card-info-bottom-right">
+                                    <span>
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </span>
+                                    <p class="product-card-description mb-0">
+                                        Delivery Fee : Free
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div>
+                            <a href="javascript:void(0)" class="inline-block">
+                                <img src="assets/images/products/02.png" alt="Product Image" class="max-w-full h-auto">
+                            </a>
+                        </div>
+                        <div>
+                            <div class="product-card-info-top">
+                                <div class="product-card-info">
+                                    <span class="text-[#F99808]">
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <p class="product-card-info-text text-[#13131880]">
+                                        5.0
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-eye"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        20
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        200
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="product-card-title">
+                                    World Cup Flags Football
+                                </a>
+                            </div>
+                            <p class="product-card-description">
+                                Explore the global spirit of football with World Cup Flags.
+                            </p>
+                            <div class="product-card-info-bottom">
+                                <h5 class="product-card-price">
+                                    Price - $20.00
+                                </h5>
+                                <div class="text-[#13131880] product-card-info-bottom-right">
+                                    <span>
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </span>
+                                    <p class="product-card-description mb-0">
+                                        Delivery Fee : Free
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div>
+                            <a href="javascript:void(0)" class="inline-block">
+                                <img src="assets/images/products/03.png" alt="Product Image" class="max-w-full h-auto">
+                            </a>
+                        </div>
+                        <div>
+                            <div class="product-card-info-top">
+                                <div class="product-card-info">
+                                    <span class="text-[#F99808]">
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <p class="product-card-info-text text-[#13131880]">
+                                        5.0
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-eye"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        20
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        200
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="product-card-title">
+                                    Cap For Hockeys
+                                </a>
+                            </div>
+                            <p class="product-card-description">
+                                Explore top-quality caps for hockey enthusiasts at our exclusive collection. 
+                            </p>
+                            <div class="product-card-info-bottom">
+                                <h5 class="product-card-price">
+                                    Price - $5.00
+                                </h5>
+                                <div class="text-[#13131880] product-card-info-bottom-right">
+                                    <span>
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </span>
+                                    <p class="product-card-description mb-0">
+                                        Delivery Fee : Free
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div>
+                            <a href="javascript:void(0)" class="inline-block">
+                                <img src="assets/images/products/04.png" alt="Product Image" class="max-w-full h-auto">
+                            </a>
+                        </div>
+                        <div>
+                            <div class="product-card-info-top">
+                                <div class="product-card-info">
+                                    <span class="text-[#F99808]">
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <p class="product-card-info-text text-[#13131880]">
+                                        5.0
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-eye"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        20
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        200
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="product-card-title">
+                                    World Cup Jersey
+                                </a>
+                            </div>
+                            <p class="product-card-description">
+                                Discover iconic World Cup jerseys, blending style with national pride. 
+                            </p>
+                            <div class="product-card-info-bottom">
+                                <h5 class="product-card-price">
+                                    Price - $30.00
+                                </h5>
+                                <div class="text-[#13131880] product-card-info-bottom-right">
+                                    <span>
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </span>
+                                    <p class="product-card-description mb-0">
+                                        Delivery Fee : Free
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div>
+                            <a href="javascript:void(0)" class="inline-block">
+                                <img src="assets/images/products/05.png" alt="Product Image" class="max-w-full h-auto">
+                            </a>
+                        </div>
+                        <div>
+                            <div class="product-card-info-top">
+                                <div class="product-card-info">
+                                    <span class="text-[#F99808]">
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <p class="product-card-info-text text-[#13131880]">
+                                        5.0
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-eye"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        20
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        200
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="product-card-title">
+                                   Helmet For Hockeys
+                                </a>
+                            </div>
+                            <p class="product-card-description">
+                                Experience elite protection with our world-class hockey helmets.
+                            </p>
+                            <div class="product-card-info-bottom">
+                                <h5 class="product-card-price">
+                                    Price - $69.00
+                                </h5>
+                                <div class="text-[#13131880] product-card-info-bottom-right">
+                                    <span>
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </span>
+                                    <p class="product-card-description mb-0">
+                                        Delivery Fee : Free
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div>
+                            <a href="javascript:void(0)" class="inline-block">
+                                <img src="assets/images/products/06.png" alt="Product Image" class="max-w-full h-auto">
+                            </a>
+                        </div>
+                        <div>
+                            <div class="product-card-info-top">
+                                <div class="product-card-info">
+                                    <span class="text-[#F99808]">
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <p class="product-card-info-text text-[#13131880]">
+                                        5.0
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-eye"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        20
+                                    </p>
+                                </div>
+                                <div class="product-card-info text-[#13131880]">
+                                    <span>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </span>
+                                    <p class="product-card-info-text">
+                                        200
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="product-card-title">
+                                    Football For World Cup
+                                </a>
+                            </div>
+                            <p class="product-card-description">
+                                Revolutionary football designed for unparalleled performance in World Cup. 
+                            </p>
+                            <div class="product-card-info-bottom">
+                                <h5 class="product-card-price">
+                                    Price - $99.00
+                                </h5>
+                                <div class="text-[#13131880] product-card-info-bottom-right">
+                                    <span>
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </span>
+                                    <p class="product-card-description mb-0">
+                                        Delivery Fee : Free
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section Content Ends Here -->
+            </div>
+        </section>
+        <!-- Products Area Ends Here -->
+
+        <!-- FAQ Area Starts Here -->
+        <section class="section-gap">
+            <div class="container mx-auto">
+                <!-- Section Header Starts Here -->
+                <div class="section-header">
+                    <h2 class="section-header-title">Clients Question</h2>
+                    <p class="section-header-description">
+                        Hockey's professional club thrives on precision, teamwork, and a relentless pursuit of excellence on the ice.
+                    </p>
+                </div>
+                <!-- Section Header Ends Here -->
+
+                <!-- Section Content Starts Here -->
+                <div class="grid grid-cols-12 gap-6 xl:p-8 xl:border xl:border-dashed xl:border-[#1313181a] rounded-2xl">
+                    <div class="col-start-1 col-end-13 lg:col-start-1 lg:col-end-5 xl:col-start-1 xl:col-end-6">   
+                        <img src="assets/images/faq/faq.png" alt="Image" class="xl:w-full lg:max-w-full h-auto hidden lg:block">
+                        <img src="assets/images/faq/faq-x.png" alt="Image" class="max-w-full h-auto mx-auto block md:hidden">
+                    </div>
+                    <div class="col-start-1 col-end-13 lg:col-start-5 lg:col-end-13 xl:col-start-6 xl:col-end-13">   
+                        <div class="collapse collapse-plus mb-3 xl:mb-6 pb-3 xl:pb-6 border-b border-[#1313181a] rounded-none">
+                            <input type="radio" name="accordion" checked="checked" /> 
+                            <div class="collapse-title faq-title px-0 !py-0">
+                                Our Equipment
+                            </div>
+                            <div class="collapse-content px-0 !pb-0"> 
+                              <p class="faq-text">
+                                Our top-notch equipment undergoes rigorous testing to ensure peak performance, guaranteeing players unmatched quality and durability.
+                              </p>
+                            </div>
+                        </div>
+                        <div class="collapse collapse-plus mb-3 xl:mb-6 pb-3 xl:pb-6 border-b border-[#1313181a] rounded-none">
+                            <input type="radio" name="accordion"> 
+                            <div class="collapse-title faq-title px-0 !py-0">
+                                Hockey Training
+                            </div>
+                            <div class="collapse-content px-0 !pb-0"> 
+                              <p class="faq-text">
+                                Discover optimal hockey training routines, techniques, and tips to elevate your game and performance.
+                              </p>
+                            </div>
+                        </div>
+                        <div class="collapse collapse-plus mb-3 xl:mb-6 pb-3 xl:pb-6 border-b border-[#1313181a] rounded-none">
+                            <input type="radio" name="accordion"> 
+                            <div class="collapse-title faq-title px-0 !py-0">
+                                Private Lessons
+                            </div>
+                            <div class="collapse-content px-0 !pb-0"> 
+                              <p class="faq-text">
+                                Private lessons enhance individual skills, tailored coaching for personalized improvement in a focused, one-on-one training environment.
+                              </p>
+                            </div>
+                        </div>
+                        <div class="collapse collapse-plus mb-3 xl:mb-6 pb-3 xl:pb-6 border-b border-[#1313181a] rounded-none">
+                            <input type="radio" name="accordion"> 
+                            <div class="collapse-title faq-title px-0 !py-0">
+                                Ski Touring
+                            </div>
+                            <div class="collapse-content px-0 !pb-0"> 
+                              <p class="faq-text">
+                                Essential gear includes skis, bindings, skins, boots, poles, and safety equipment.
+                              </p>
+                            </div>
+                        </div>
+                        <div class="collapse collapse-plus mb-3 xl:mb-6 pb-3 xl:pb-6 border-b border-[#1313181a] rounded-none">
+                            <input type="radio" name="accordion"> 
+                            <div class="collapse-title faq-title px-0 !py-0">
+                                Booking
+                            </div>
+                            <div class="collapse-content px-0 !pb-0"> 
+                              <p class="faq-text">
+                                Secure your spot by visiting our booking page, choose your preferred time, pay seamlessly, and enjoy!
+                              </p>
+                            </div>
+                        </div>
+                        <div class="collapse collapse-plus rounded-none">
+                            <input type="radio" name="accordion"> 
+                            <div class="collapse-title faq-title px-0 !py-0">
+                                Pricings
+                            </div>
+                            <div class="collapse-content px-0 !pb-0"> 
+                              <p class="faq-text">
+                                For pricing details, kindly refer to our Get In Touch section where you can send mail to us about pricing.
+                              </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section Content Ends Here -->
+            </div>
+        </section>
+        <!-- FAQ Area Ends Here -->
+
+        <!-- Contact Area Starts Here -->
+        <section class="section-gap">
+            <div class="container mx-auto">
+                <!-- Section Header Starts Here -->
+                <div class="section-header">
+                    <h2 class="section-header-title">Get In Touch</h2>
+                    <p class="section-header-description">
+                        Connect with us to explore the exciting world of professional hockey. Your journey into hockey excellence begins here. 
+                    </p>
+                </div>
+                <!-- Section Header Ends Here -->
+
+                <!-- Section Content Starts Here -->
+                <div>
+                    <div class="grid grid-cols-12 gap-6">
+                        <div class="col-start-1 col-end-13 xl:col-start-1 xl:col-end-6">
+                            <div class="contact-area-right">
+                                <div class="contact-card">
+                                    <div>
+                                        <img src="assets/images/icons/contact/01.png" alt="Icon" class="max-w-full h-auto">
+                                    </div>
+                                    <div>
+                                        <p>
+                                            Phone Number :
+                                        </p> 
+                                        <a href="tel:+216-017-487-835" class="inline-block">
+                                            (+216) 017-487-835
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="contact-card">
+                                    <div>
+                                        <img src="assets/images/icons/contact/02.png" alt="Icon" class="max-w-full h-auto">
+                                    </div>
+                                    <div>
+                                        <p>
+                                            Email : 
+                                        </p>
+                                        <a href="mailto:@info.hockeys.com" class="inline-block">
+                                            @info.hockeys.com
+                                        </a> 
+                                    </div>
+                                </div>
+                                <div class="contact-card">
+                                    <div>
+                                        <img src="assets/images/icons/contact/03.png" alt="Icon" class="max-w-full h-auto">
+                                    </div>
+                                    <div>
+                                        <p>
+                                            Location : 
+                                        </p> 
+                                        <h4>
+                                            mosquée bordj elakerma, Tunisia
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-start-1 col-end-13 xl:col-start-6 xl:col-end-13">
+                            <form class="contact-area-form">
+                                <div class="grid sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label for="name">Your Name</label>
+                                        <input type="text" id="name" placeholder="Enter your full name">
+                                    </div>
+                                    <div>
+                                        <label for="email">Your Email</label>
+                                        <input type="email" id="email" placeholder="Enter your full name">
+                                    </div>
+                                    <div>
+                                        <label for="subject">Subject</label>
+                                        <input type="text" id="subject" placeholder="Enter your subject">
+                                    </div>
+                                    <div>
+                                        <label for="phoneNumber">Phone Number</label>
+                                        <input type="text" id="phoneNumber" placeholder="Enter your phone number">
+                                    </div>
+                                </div>
+                                <div class="mt-4 xl:mt-6 mb-4 xl:mb-8">
+                                    <label>Message</label>
+                                    <textarea placeholder="Write your message"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="primary-button py-4 w-full">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="s-media">
+                        <h4>Social Media</h4>
+                        <div>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section Content Ends Here -->
+            </div>
+        </section>
+        <!-- Contact Area Ends Here -->
+    </main>
+    <!-- Main Content Ends Here --> 
+
+    <!-- Footer Starts Here --> 
+    <footer class="px-3 xl:px-5 mt-10 xl:mt-24 bg-[#131318] py-10 xl:py-24 footer">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-12 gap-6 w-full">
+                <div class="col-start-1 col-end-13 sm:col-start-1 sm:col-end-6 xl:col-start-1 xl:col-end-6">
+                    <div>
+                        <h3>Get In Touch</h3>
+                        <p class="footer-text">
+                            Contact us to discuss hockey strategies, player insights, and partnership opportunities. Let's elevate the game together!
+                        </p>
+                        <div class="gap-4 flex items-center justify-center lg:justify-start mb-3">
+                            <span class="footer-icon">
+                                <i class="fa-regular fa-envelope"></i>
+                            </span>
+                            <span class="footer-text-normal">
+                                @info.hockeys.com 
+                            </span>
+                        </div>
+                        <div class="gap-4 flex items-center justify-center lg:justify-start">
+                            <span class="footer-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <span class="footer-text-normal">
+                                (+216) 017-487-835 
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-start-1 col-end-13 sm:col-start-6 sm:col-end-10 xl:col-start-6 xl:col-end-11">
+                    <div class="grid grid-cols-2">
+                        <div class="text-center sm:text-left">
+                            <h4 class="footer-heading">Company</h4>
+                            <ul class="footer-list">                               
+                                <li><a href="javascript:void(0)">About us</a></li>
+                                <li><a href="javascript:void(0)">Leadership</a></li>
+                                <li><a href="javascript:void(0)">Careers</a></li>
+                                <li><a href="javascript:void(0)">News & Article</a></li>
+                                <li><a href="javascript:void(0)">Legal Notice</a></li>
+                            </ul>
+                        </div>
+                        <div class="text-center sm:text-right lg:text-left">
+                            <h4 class="footer-heading">Support</h4>
+                            <ul class="footer-list">                               
+                                <li><a href="javascript:void(0)">Help Center</a></li>
+                                <li><a href="javascript:void(0)">FAQ</a></li>
+                                <li><a href="javascript:void(0)">Ticket Support</a></li>
+                                <li><a href="javascript:void(0)">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-start-1 col-end-13 sm:col-start-10 sm:col-end-13 xl:col-start-11 xl:col-end-13">
+                    <div class="text-center sm:text-left">
+                        <h4 class="footer-heading">Services</h4>
+                        <ul class="footer-list">                               
+                            <li><a href="javascript:void(0)">Academy</a></li>
+                            <li><a href="javascript:void(0)">Group Lesson</a></li>
+                            <li><a href="javascript:void(0)">Private Lesson</a></li>
+                            <li><a href="javascript:void(0)">Hockeys for kids</a></li>
+                            <li><a href="javascript:void(0)">Hockeys for Adult</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Ends Here --> 
+</body>
+</html>
+
+
+
+
